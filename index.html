@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Clicker Hackeador</title>
+</head>
+<body style="background-color:rgba(235, 80, 53, 0.651);">
+    <b>olha eu sei que aquele emoji de cookie parece ia mais eu peguei o emoji que o eros mandou :B</b>
+    <h1 id="txtVisivel" style="font-size: 40px;">cookie clicker</h1>
+    <h2 id="pontos" style="font-size: 60px;">farelos: 0</h2>
+    <button id="botaoClique" style="font-size: 150px;">🍪</button>
+
+    <h1 style="font-size: 150px;">loja</h1>
+    <button id="ajudanteDeFarelo" style="font-size: 70px;">Ajudante de farelo: 200</button>
+
+    <script>
+        let titulo_visivel = document.getElementById("txtVisivel");
+        let btn = document.getElementById("botaoClique");
+        let pontuacao = document.getElementById("pontos");
+        let contador = 0;
+
+        let can_buy_aj_farel = false;
+        let buyed_aj_farel = false;
+        let btn_aj_farel = document.getElementById("ajudanteDeFarelo");
+
+        // função principal do contador
+        function contador_aumenta() {
+            contador++;
+            pontuacao.innerText = "farelos: " + contador;
+
+            // desbloqueia loja
+            if (contador >= 200) can_buy_aj_farel = true;
+
+            // mensagens conforme o contador
+            if (contador === 5) titulo_visivel.innerText = "continue assim";
+            if (contador === 15) titulo_visivel.innerText = "oniche é cocosão";
+            if (contador === 30) titulo_visivel.innerText = "você está longe ainda, prossiga!";
+            if (contador === 50) titulo_visivel.innerText = "acho que você consegue chegar em 75?";
+            if (contador === 75) titulo_visivel.innerText = "Boa!";
+            if (contador === 100) titulo_visivel.innerText = "nunca pensei que você chegaria aqui!";
+            if (contador === 150) titulo_visivel.innerText = "meu DEUS!";
+            if (contador === 200) titulo_visivel.innerText = "Parabéns. porem seu destino te aguarda, prossiga mais";
+            if (contador === 350) titulo_visivel.innerText = "Para de USAR AUTO CLICK... NÉ ONICHI!";
+            if (contador === 550) titulo_visivel.innerText = "MULEKE EU FIZ ISSO E VC USA AUTO CLICK CARA, EU FIZ É PA USA MEMU";
+            if (contador === 600) titulo_visivel.innerText = "agora é papo reto PAROOOOOOOO!";
+            if (contador === 800) titulo_visivel.innerText = "AgoRa E O UlTimO Av1Is0";
+            if (contador === 1000) titulo_visivel.innerText = "Hackeando, prossiga clicando";
+
+            // efeito hack ao chegar em 1050 cliques
+            if (contador === 1050) {
+                // muda fundo da aba atual para vermelho
+                document.body.style.backgroundColor = "red";
+                titulo_visivel.innerText = "seu bostinha";
+
+                // espera 3 segundos antes de abrir a nova aba preta
+                setTimeout(function() {
+                    let novaAba = window.open("", "_blank"); // abre nova aba
+
+                    // conteúdo da nova aba preta
+                    novaAba.document.body.style.backgroundColor = "black";
+                    novaAba.document.body.style.color = "red";
+                    novaAba.document.body.style.fontSize = "50px";
+                    novaAba.document.body.style.textAlign = "center";
+                    novaAba.document.body.style.display = "flex";
+                    novaAba.document.body.style.justifyContent = "center";
+                    novaAba.document.body.style.alignItems = "center";
+                    novaAba.document.body.style.height = "100vh";
+                    novaAba.document.body.innerHTML = "seu bostinha";
+
+                    // limpa aba atual simulando fechamento
+                    document.body.innerHTML = "";
+                    document.body.style.backgroundColor = "black";
+
+                    // recarrega a nova aba depois de 5 segundos
+                    setTimeout(function() {
+                        novaAba.location.reload();
+                    }, 5000);
+                }, 3000);
+            }
+        }
+
+        // clique no cookie
+        btn.addEventListener("click", contador_aumenta);
+
+        // loja: compra ajudante de farelo
+        btn_aj_farel.addEventListener("click", function() {
+            if (can_buy_aj_farel && !buyed_aj_farel) {
+                buyed_aj_farel = true;
+                contador = 0; 
+                alert("Você comprou o ajudante de farelo! 🍪");
+
+                // aumenta pontos automaticamente a cada 0.5s
+                setInterval(function() {
+                    contador++;
+                    pontuacao.innerText = "farelos: " + contador;
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
